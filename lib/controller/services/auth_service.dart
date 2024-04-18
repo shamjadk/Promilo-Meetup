@@ -10,6 +10,7 @@ import 'package:promilo_meetup/model/user_model.dart';
 class AuthService {
   static Future<TokenModel?> login(UserModel model) async {
     final dio = Dio();
+
     final convertedPassword =
         sha256.convert(utf8.encode(model.password.trim())).toString();
 
@@ -31,10 +32,13 @@ class AuthService {
       );
 
       if (response.statusCode == 200) {
+        log(response.statusCode.toString());
         return TokenModel(token: response.data['response']['access_token']);
       } else {
         log('Status code: ${response.statusCode}');
       }
+    } on DioException {
+      log('Api error');
     } catch (e) {
       log(e.toString());
     }

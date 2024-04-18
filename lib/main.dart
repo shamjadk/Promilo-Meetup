@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:promilo_meetup/view/pages/login_page.dart';
+import 'package:promilo_meetup/view/pages/home_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }

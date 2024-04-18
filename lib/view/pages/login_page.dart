@@ -10,17 +10,15 @@ class LoginPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final isEnabled = useState<bool>(false);
-
     final formKey = useMemoized(() => GlobalKey<FormState>());
-    final emailController =
-        useTextEditingController(text: 'test45@yopmail.com');
-    final passwordController = useTextEditingController(text: 'Test@123');
+    final emailController = useTextEditingController();
+    final passwordController = useTextEditingController();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           scrolledUnderElevation: 0,
           title: const Text(

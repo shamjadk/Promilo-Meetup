@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:promilo_meetup/controller/navigator_controller.dart';
 import 'package:promilo_meetup/controller/services/auth_service.dart';
@@ -28,10 +29,14 @@ class Auth extends _$Auth {
           () => showSnackBar(context, 'Successfully logged in', false),
         );
       }
+    } on DioException {
+      Future.sync(
+        () => showSnackBar(context, 'API error. Try again', true),
+      );
     } catch (e) {
       state = false;
       Future.sync(
-        () => showSnackBar(context, 'An error occured', true),
+        () => showSnackBar(context, 'An error occured. Try again', true),
       );
     }
   }
