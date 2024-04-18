@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:promilo_meetup/core/theme/app_theme.dart';
 
+// ignore: must_be_immutable
 class TextFieldWidget extends StatelessWidget {
   final bool isCheckBox;
   final String fieledHead;
   final String fieldtail;
   final String hintText;
+  late ValueNotifier<bool> isEnabled;
   final TextEditingController controller;
 
-  const TextFieldWidget(
+  TextFieldWidget(
       {super.key,
       required this.fieledHead,
       required this.fieldtail,
       required this.hintText,
       required this.controller,
-      required this.isCheckBox});
+      required this.isCheckBox,
+      required this.isEnabled});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +26,29 @@ class TextFieldWidget extends StatelessWidget {
       children: [
         Text(
           fieledHead,
-          style: const TextStyle(color: AppTheme.text, fontSize: 16),
+          style: const TextStyle(
+              color: AppTheme.text, fontSize: 16, fontWeight: FontWeight.w500),
         ),
         const SizedBox(
           height: 8,
         ),
         TextFormField(
+          onChanged: (value) {
+            if (value.isEmpty) {
+              isEnabled.value = false;
+            } else {
+              isEnabled.value = true;
+            }
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'This field is Required';
+            } else if (isCheckBox == false &&
+                !controller.text.endsWith('com')) {
+              return 'Enter a valid emali ID';
+            }
+            return null;
+          },
           cursorColor: AppTheme.button,
           controller: controller,
           decoration: InputDecoration(

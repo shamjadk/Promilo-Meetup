@@ -3,11 +3,12 @@ import 'dart:developer';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
+import 'package:promilo_meetup/core/utils/api_utils.dart';
 import 'package:promilo_meetup/model/token_model.dart';
 import 'package:promilo_meetup/model/user_model.dart';
 
 class AuthService {
-  Future<TokenModel?> login(UserModel model) async {
+  static Future<TokenModel?> login(UserModel model) async {
     final dio = Dio();
     final convertedPassword =
         sha256.convert(utf8.encode(model.password.trim())).toString();
@@ -20,7 +21,7 @@ class AuthService {
 
     try {
       final response = await dio.post(
-        'https://apiv2stg.promilo.com/user/oauth/token',
+        ApiUtils.postUrl,
         data: formData,
         options: Options(
           headers: {
@@ -32,7 +33,7 @@ class AuthService {
       if (response.statusCode == 200) {
         return TokenModel(token: response.data['response']['access_token']);
       } else {
-        throw Exception('Status code: ${response.statusCode}');
+        log('Status code: ${response.statusCode}');
       }
     } catch (e) {
       log(e.toString());
