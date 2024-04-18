@@ -13,8 +13,7 @@ class SubmitButtonWidget extends ConsumerWidget {
       required this.formKey,
       required this.email,
       required this.password,
-      required this.backgroundColor
-      });
+      required this.backgroundColor});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +27,7 @@ class SubmitButtonWidget extends ConsumerWidget {
           )),
       onPressed: () {
         if (formKey.currentState!.validate()) {
-          ref.read(authProvider.notifier).login(email, email, context);
+          ref.read(authProvider.notifier).login(email, password, context);
         }
       },
       child: const Text(
