@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:promilo_meetup/core/theme/app_theme.dart';
 
 class SearchFieldWidget extends StatelessWidget {
