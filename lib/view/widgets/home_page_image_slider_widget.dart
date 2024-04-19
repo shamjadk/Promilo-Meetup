@@ -13,7 +13,7 @@ class HomePageImageSliderWidget extends ConsumerWidget {
     var currentIndex = ref.read(imageProvider);
     final pageController = PageController(initialPage: currentIndex);
 
-    final List<String> imageUrls = [
+    final List<String> imageList = [
       'https://www.raah.org.in/wp-content/uploads/2019/09/brainstorming-chatting-communicating-2962135-1-1024x574.jpg',
       'https://s39613.pcdn.co/wp-content/uploads/2019/06/rights-and-responsibilities-for-group-members-062819-2.jpg',
       'https://www.marketing91.com/wp-content/uploads/2021/02/What-is-Group.jpg',
@@ -27,14 +27,14 @@ class HomePageImageSliderWidget extends ConsumerWidget {
             child: PageView.builder(
               controller: pageController,
               onPageChanged: (index) => currentIndex = index,
-              itemCount: imageUrls.length,
+              itemCount: imageList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
                           image: NetworkImage(
-                            imageUrls[index],
+                            imageList[index],
                           ),
                           fit: BoxFit.cover,
                         )),
@@ -65,7 +65,7 @@ class HomePageImageSliderWidget extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              imageUrls.length,
+              imageList.length,
               (index) => InkWell(
                 onTap: () {
                   pageController.animateToPage(
