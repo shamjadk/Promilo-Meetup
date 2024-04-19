@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:promilo_meetup/core/theme/app_theme.dart';
 
-final imageProvider = StateProvider<int>((ref) => 0);
+final pageIndexProvider = StateProvider<int>((ref) => 0);
 
 class HomePageImageSliderWidget extends ConsumerWidget {
   const HomePageImageSliderWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var currentIndex = ref.read(imageProvider);
+    var currentIndex = ref.read(pageIndexProvider);
     final pageController = PageController(initialPage: currentIndex);
 
     final List<String> imageList = [
@@ -73,7 +73,7 @@ class HomePageImageSliderWidget extends ConsumerWidget {
                     duration: const Duration(milliseconds: 100),
                     curve: Curves.ease,
                   );
-                  ref.read(imageProvider.notifier).state = index;
+                  ref.read(pageIndexProvider.notifier).state = index;
                 },
                 child: DotsIndicator(
                   dotsCount: 1,

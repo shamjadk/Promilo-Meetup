@@ -45,13 +45,22 @@ class RatingRowWidget extends ConsumerWidget {
           width: 8,
         ),
         Container(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
           height: 16,
           decoration: BoxDecoration(
-            color: Colors.grey,
+            color: Colors.grey.shade400,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
-            children: List.generate(5, (index) => rating(index)),
+            children: List.generate(5, (index) {
+              int descendingIndex = 5 - index - 1;
+              return Icon(
+                Icons.star,
+                size: 16,
+                color: const Color.fromARGB(255, 39, 193, 201)
+                    .withOpacity(descendingIndex / 5),
+              );
+            }),
           ),
         ),
         const SizedBox(
@@ -64,19 +73,4 @@ class RatingRowWidget extends ConsumerWidget {
       ],
     );
   }
-}
-
-Widget rating(int index) {
-  final opacity = (1.0 - (index / 5)).clamp(0.0, 1.0);
-  final color =
-      index == 5 ? Colors.white : const Color.fromARGB(255, 54, 199, 209);
-
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 2),
-    child: Icon(
-      Icons.star,
-      color: color.withOpacity(opacity),
-      size: 14,
-    ),
-  );
 }
