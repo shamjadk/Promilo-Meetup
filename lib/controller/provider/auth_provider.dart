@@ -4,7 +4,7 @@ import 'package:promilo_meetup/controller/navigator_controller.dart';
 import 'package:promilo_meetup/controller/services/auth_service.dart';
 import 'package:promilo_meetup/core/utils/snack_bar_utils.dart';
 import 'package:promilo_meetup/model/user_model.dart';
-import 'package:promilo_meetup/view/pages/home_page.dart';
+import 'package:promilo_meetup/view/pages/bottom_navigation_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_provider.g.dart';
@@ -24,7 +24,8 @@ class Auth extends _$Auth {
           await AuthService.login(UserModel(email: email, password: password));
       state = false;
       if (token!.token != '') {
-        Future.sync(() => Nav.navPushReplace(context, const HomePage()));
+        Future.sync(
+            () => Nav.navPushReplace(context, BottomNavigationBarPage()));
         Future.sync(
           () => showSnackBar(context, 'Successfully logged in', false),
         );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:promilo_meetup/controller/navigator_controller.dart';
 import 'package:promilo_meetup/core/theme/app_theme.dart';
+import 'package:promilo_meetup/view/pages/login_page.dart';
 import 'package:promilo_meetup/view/widgets/home_page_image_slider_widget.dart';
 import 'package:promilo_meetup/view/widgets/meetup_list_widget.dart';
 import 'package:promilo_meetup/view/widgets/people_card_widget.dart';
@@ -18,6 +20,14 @@ class HomePage extends StatelessWidget {
           'Individual Meetup',
           style: TextStyle(color: AppTheme.text, fontWeight: FontWeight.w500),
         ),
+        actions: [
+          IconButton(
+              onPressed: () => Nav.navPushReplace(context, const LoginPage()),
+              icon: const Icon(
+                Icons.logout,
+                color: AppTheme.button,
+              ))
+        ],
       ),
       body: const SingleChildScrollView(
         child: Padding(
