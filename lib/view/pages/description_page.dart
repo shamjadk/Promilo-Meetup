@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promilo_meetup/view/widgets/bottom_nav_widget.dart';
 import 'package:promilo_meetup/view/widgets/description_page_image_slider_widget.dart';
 import 'package:promilo_meetup/view/widgets/description_widget.dart';
 import 'package:promilo_meetup/view/widgets/rating_row_widget.dart';
@@ -35,6 +36,7 @@ class DescriptionPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavWidget(),
     );
   }
 }

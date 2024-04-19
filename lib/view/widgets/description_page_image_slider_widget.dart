@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:promilo_meetup/view/widgets/dots_indicator_widget.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DescriptionPageImageSliderWidget extends ConsumerWidget {
   const DescriptionPageImageSliderWidget({super.key});
@@ -76,7 +77,11 @@ class DescriptionPageImageSliderWidget extends ConsumerWidget {
                 color: Colors.black,
               ),
               InkWell(
-                onTap: () async {},
+                onTap: () async {
+                  await Share.share(
+                    'Share',
+                  );
+                },
                 child: const Icon(
                   Icons.share_outlined,
                   size: 28,

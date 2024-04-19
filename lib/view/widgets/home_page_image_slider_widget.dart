@@ -59,6 +59,9 @@ class HomePageImageSliderWidget extends ConsumerWidget {
               },
             ),
           ),
+          const SizedBox(
+            height: 4,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
@@ -77,10 +80,11 @@ class HomePageImageSliderWidget extends ConsumerWidget {
                   position: 0,
                   decorator: DotsDecorator(
                     color: AppTheme.text,
+                    spacing: const EdgeInsets.all(4),
                     activeColor:
                         index == currentIndex ? AppTheme.text : Colors.grey,
-                    size: const Size.square(8),
-                    activeSize: const Size(8, 8),
+                    size: const Size.square(10),
+                    activeSize: const Size(10, 10),
                   ),
                 ),
               ),

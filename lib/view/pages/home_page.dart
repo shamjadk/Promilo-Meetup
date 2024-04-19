@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:promilo_meetup/core/theme/app_theme.dart';
-import 'package:promilo_meetup/view/pages/bottom_navigation_page.dart';
 import 'package:promilo_meetup/view/widgets/home_page_image_slider_widget.dart';
 import 'package:promilo_meetup/view/widgets/meetup_list_widget.dart';
 import 'package:promilo_meetup/view/widgets/people_card_widget.dart';
@@ -53,7 +52,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavigationBarWidget(),
     );
   }
 }
