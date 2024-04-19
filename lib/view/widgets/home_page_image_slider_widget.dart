@@ -70,7 +70,7 @@ class HomePageImageSliderWidget extends ConsumerWidget {
                 onTap: () {
                   pageController.animateToPage(
                     index,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 100),
                     curve: Curves.ease,
                   );
                   ref.read(imageProvider.notifier).state = index;
