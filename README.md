@@ -1,16 +1,11 @@
-# promilo_meetup
+# Promilo Meetup
+A simple application with authentication by post request. There are 2 pages which have simple UI and sharing feature.
 
-A new Flutter project.
 
-## Getting Started
+||  |
+|--|--|
+| Architecture | MVC |
+|State management|Riverpod|
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Note
+There is a small problem with API . Sometimes an exception being thrown when try to login. But, sometimes there is no exception and successfully getting logged in.
