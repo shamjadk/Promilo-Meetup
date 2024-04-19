@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:promilo_meetup/view/pages/bottom_navigation_page.dart';
-import 'package:promilo_meetup/view/pages/home_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
