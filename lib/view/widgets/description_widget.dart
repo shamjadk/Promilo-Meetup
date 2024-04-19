@@ -46,7 +46,7 @@ class DescriptionWidget extends StatelessWidget {
               size: 16,
             ),
             const SizedBox(width: 8),
-            Text('Total Average Fees \u{20B9}${'9999'}',
+            Text('Total Average Fees ₹9999',
                 style: TextStyle(color: Colors.grey.shade600, fontSize: 11)),
           ],
         ),
